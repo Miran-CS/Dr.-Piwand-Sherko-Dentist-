@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dentist | Dr. Paiwand Sherko</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #0d1b2a;
+      --secondary-color: #1b263b;
+      --accent-color: #007acc; /* Blue accent */
+      --text-color-light: #f4f4f4;
+      --text-color-faded: #a2a2a2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--primary-color);
+      color: var(--text-color-light);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Background Circles */
+    .circle-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 400px;
+      background: rgba(0, 95, 219, 0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse 10s infinite ease-in-out;
+      z-index: 0;
+    }
+    .circle-bg:nth-child(2) {
+      width: 550px;
+      height: 550px;
+      animation-delay: 2s;
+    }
+
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+      50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.3; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+    }
+
+    /* Main Card Layout */
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 750px;
+      max-width: 90%;
+      background-color: var(--secondary-color);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      display: flex;
+      overflow: hidden;
+      animation: slideIn 1s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .image-side {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .profile-image {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid var(--accent-color);
+      box-shadow: 0 0 20px rgba(42, 188, 255, 0.786);
+      transition: transform 0.4s ease;
+    }
+    .profile-image:hover {
+      transform: scale(1.05);
+    }
+
+    .info-side {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; /* This centers items horizontally */
+      text-align: center; /* This centers the text within the items */
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .role {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--text-color-faded);
+      margin-bottom: 2rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 1rem;
+      justify-content: center; /* This ensures list items are centered */
+    }
+    .contact-list a {
+      color: var(--text-color-light);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    .contact-list a:hover {
+      color: var(--accent-color);
+    }
+    .contact-list img {
+      width: 20px;
+      filter: brightness(0) invert(1);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      margin-top: 1rem;
+      justify-content: center; /* This centers the social icons */
+    }
+    .social-icons a {
+      width: 45px;
+      height: 45px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .social-icons a:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-5px);
+    }
+    .social-icons img {
+      width: 24px;
+      filter: invert(1);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      color: var(--text-color-faded);
+    }
+
+    /* Media Queries for Mobile */
+    @media (max-width: 768px) {
+      .card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .image-side {
+        padding: 1rem;
+      }
+      .profile-image {
+        width: 150px;
+        height: 150px;
+      }
+      .info-side {
+        padding: 2rem;
+      }
+      .contact-list li {
+        justify-content: center;
+      }
+      .social-icons {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="circle-bg"></div>
+  <div class="circle-bg"></div>
+
+  <div class="card">
+    <div class="image-side">
+      <img src="Paiwand.jpg" alt="Dr. Paiwand Sherko" class="profile-image">
+    </div>
+    <div class="info-side">
+      <h1>Dr. Paiwand Sherko</h1>
+      <p class="role">Professional Dentist</p>
+      
+      <ul class="contact-list">
+        <li>
+          <img src="https://img.icons8.com/material-outlined/24/000000/marker.png" alt="Location Icon">
+          <a href="http://googleusercontent.com/maps.google.com/3" target="_blank">Erbil - Cihan University</a>
+        </li>
+        <li>
+          <img src="https://img.icons8.com/material-outlined/24/000000/new-post.png" alt="Email Icon">
+          <a href="mailto:ps11122081@cihanuniversity.edu.iq">ps11122081@cihanuniversity.edu.iq</a>
+        </li>
+        <li>
+          <img src="https://img.icons8.com/material-outlined/24/000000/phone.png" alt="Phone Icon">
+          <a href="tel:+9647517791592">+964 751 779 1592</a>
+        </li>
+      </ul>
+
+      <div class="social-icons">
+        <a href="https://wa.me/9647517791592" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp"></a>
+        <a href="https://t.me/+9647517791592" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/telegram-app.png" alt="Telegram"></a>
+        <a href="viber://chat?number=%2B9647517791592" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/viber.png" alt="Viber"></a>
+        <a href="mailto:ps11122081@cihanuniversity.edu.iq" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" alt="Email"></a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 | Dr. Paiwand Sherko Dental Services
+  </footer>
+</body>
+</html>
