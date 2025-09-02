@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dentist | Dr. Paiwand Sherko</title>
+  <title>Dr. Paiwand Sherko Dentist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
       height: 400px;
       background: rgba(0, 95, 219, 0.1);
       border-radius: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -5-0%);
       animation: pulse 10s infinite ease-in-out;
       z-index: 0;
     }
@@ -183,6 +183,52 @@
       font-size: 0.8rem;
       color: var(--text-color-faded);
     }
+
+    /* Media Queries for Mobile */
+    @media (max-width: 768px) {
+      .card {
+        flex-direction: column;
+        text-align: center;
+        width: 95%; /* Make the card slightly larger on mobile for better visibility */
+      }
+      .image-side {
+        padding: 1.5rem; /* Increase padding for better spacing */
+      }
+      .profile-image {
+        width: 180px; /* Increase image size on mobile */
+        height: 180px;
+      }
+      .info-side {
+        padding: 1.5rem; /* Adjust padding for a more compact look */
+      }
+      h1 {
+        font-size: 2rem; /* Make the name a bit smaller for mobile */
+        white-space: normal; /* Allow text to wrap to prevent overflow */
+      }
+      .role {
+        margin-bottom: 1.5rem; /* Reduce bottom margin for a more compact layout */
+      }
+      .contact-list li {
+        justify-content: center;
+        flex-direction: column; /* Stack the icon and text on mobile for better legibility */
+        gap: 5px; /* Reduce gap */
+      }
+      .social-icons {
+        justify-content: center;
+        gap: 15px; /* Reduce gap between social icons */
+      }
+      footer {
+        bottom: 1rem; /* Move footer up slightly to prevent overlap */
+      }
+      .circle-bg {
+        width: 300px; /* Reduce size of background circles */
+        height: 300px;
+      }
+      .circle-bg:nth-child(2) {
+        width: 400px;
+        height: 400px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -191,7 +237,7 @@
 
   <div class="card">
     <div class="image-side">
-      <img src="Paiwand.jpg" alt="Dr. Paiwand Sherko" class="profile-image">
+      <img src="Paiwand.png" alt="Dr. Paiwand Sherko" class="profile-image">
     </div>
     <div class="info-side">
       <h1>Dr. Paiwand Sherko</h1>
